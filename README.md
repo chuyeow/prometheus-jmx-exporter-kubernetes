@@ -41,7 +41,7 @@ In your Kafka container, set `KAFKA_OPTS` to refer to files placed by the `prome
 
 ```yaml
 - name: KAFKA_OPTS
-  value: -javaagent:/shared-volume/jmx_prometheus_javaagent.jar=19000:/shared-volume/configs/kafka.yaml
+  value: -javaagent:/shared-volume/jmx_prometheus_javaagent.jar=19000:/shared-volume/configs/kafka-config.yaml
 ```
 
 Don't forget to annotate your resources so Prometheus will scrape your pod's `/metrics` endpoint:
