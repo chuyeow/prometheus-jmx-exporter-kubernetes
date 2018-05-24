@@ -1,4 +1,5 @@
-# Copied from https://github.com/prometheus/jmx_exporter/blob/e123b63/example_configs/kafka-0-8-2.yml. 
+# Copied from https://github.com/prometheus/jmx_exporter/blob/e123b63/example_configs/kafka-0-8-2.yml,
+# then modified.
 lowercaseOutputName: true
 rules:
 - pattern : kafka.cluster<type=(.+), name=(.+), topic=(.+), partition=(.+)><>Value
@@ -88,3 +89,7 @@ rules:
   labels:
     "$4": "$5"
 
+- pattern: kafka.consumer<type=(.+), client-id=(.+)><>(records-lag-max)
+  name: kafka_$1_$3
+  labels:
+    clientId: "$2"
