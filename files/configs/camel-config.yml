@@ -1,0 +1,25 @@
+rules:
+    - pattern: 'org.apache.camel<context=(.*), type=routes, name=\"(.*)\"><>(.+):'
+      name: $3
+      help: $3
+      labels:
+          route: $2
+          context: $1
+          type: 'route'
+    - pattern: 'org.apache.camel<context=(.*), type=context, name=\"(.*)\"><>(.+):'
+      name: $3
+      help: $3
+      labels:
+          context: $1
+          type: 'context'
+    - pattern: 'org.apache.karaf<type=system, name=(.*)><>(.*):'
+      name: $2
+      help: $2
+      labels:
+          container: $1
+          name: $2
+          type: 'karaf'
+    - pattern: 'java.lang<type=OperatingSystem><>(.*):'
+      name: os_$1
+      attrNameSnakeCase: true
+

@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-COPY files/jmx_prometheus_javaagent-0.3.1.jar /files/jmx_prometheus_javaagent.jar
+COPY files/jmx_prometheus_javaagent-0.14.0.jar /files/jmx_prometheus_javaagent.jar
 COPY files/configs/* /files/configs/
 
 ENV SHARED_VOLUME_PATH /shared
